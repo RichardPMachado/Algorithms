@@ -15,11 +15,12 @@ def sort(lst):
 
 
 def is_anagram(first_string, second_string):
+
     a = ''.join(sort(list(first_string.lower())))
     b = ''.join(sort(list(second_string.lower())))
 
-    if len(a) == 0 or len(b) == 0:
-        return (a, b, False)
+    if len(first_string) == 0 or len(second_string) == 0:
+        return (first_string, second_string, False)
 
     if a == b:
         return (a, b, True)
