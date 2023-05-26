@@ -1,8 +1,24 @@
+def sort(lst):
+    n = len(lst)
+
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if lst[j] > lst[j+1]:
+                lst[j], lst[j+1] = lst[j+1], lst[j]
+                swapped = True
+
+        if not swapped:
+            break
+
+    return lst
+
+
 def is_anagram(first_string, second_string):
-    """Faça o código aqui."""
-    a = ''.join(sorted(first_string.lower()))
-    b = ''.join(sorted(second_string.lower()))
-    if (len(a) or len(a)) == 0:
+    a = ''.join(sort(list(first_string.lower())))
+    b = ''.join(sort(list(second_string.lower())))
+
+    if len(a) == 0 or len(b) == 0:
         return (a, b, False)
 
     if a == b:
@@ -10,4 +26,5 @@ def is_anagram(first_string, second_string):
     else:
         return (a, b, False)
 
-# print(is_anagram("pata", ""))
+
+print(is_anagram("atpas", "pata"))
